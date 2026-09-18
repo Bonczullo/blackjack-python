@@ -16,7 +16,8 @@ game = Game()
 game.deal_init_cards()
 print(f"Karty gracza: {game.player_hand} -> {game.player_hand.get_value()}")
 print(f"Karta dealera: {game.dealer_hand.cards[0]}")
-while(game.player_turn):
+game.check_init_blackjack()
+while game.player_turn:
     action = input("Akcja:")
     if action == 'hit':
         game.hit()

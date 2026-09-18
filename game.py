@@ -27,14 +27,14 @@ class Game:
             return 'no_bj'
 
     def hit(self):
-        if self.player_turn == False:
+        if not self.player_turn:
             return
         self.player_hand.add_card(self.deck.draw_card())
         if self.player_hand.check_bust():
             self.player_turn = False
 
     def stand(self):
-        if self.player_turn == False:
+        if not self.player_turn:
             return
         self.player_turn = False
 

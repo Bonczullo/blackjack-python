@@ -28,11 +28,7 @@ class Hand:
         return value
 
     def check_blackjack(self):
-        if len(self) == 2 and self.get_value() == 21:
-            return True
-        return False
+        return len(self) == 2 and self.get_value() == 21
 
     def check_bust(self):
-        if self.get_value() > 21:
-            return True
-        return False
+        return self.get_value() > 21
