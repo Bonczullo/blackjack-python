@@ -11,7 +11,7 @@ class Hand:
     def add_card(self, card):
         self.cards.append(card)
 
-    def get_value(self):
+    def calculate_value(self):
         value = 0
         aces = 0
         for card in self.cards:
@@ -25,7 +25,17 @@ class Hand:
         while value > 21 and aces > 0:
             aces -= 1
             value -= 10
+        return value, aces    
+
+    def get_value(self):
+        value, _ = self.calculate_value()
         return value
+
+    def get_value_str(self):
+        value, aces = self.calculate_value()
+        if value < 21 and aces > 0:
+            return f"{value - 10}/{value}"
+        return str(value)
 
     def check_blackjack(self):
         return len(self) == 2 and self.get_value() == 21

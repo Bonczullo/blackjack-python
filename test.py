@@ -9,23 +9,24 @@ from game import Game
 #     hand1.add_card(deck1.draw_card())
 # print(hand1)
 # print(hand1.get_value())
-# if hand1.check_blackjack():
-#     print("BLACKJACK!")
 
 game = Game()
-game.deal_init_cards()
-print(f"Karty gracza: {game.player_hand} -> {game.player_hand.get_value()}")
-print(f"Karta dealera: {game.dealer_hand.cards[0]}")
-game.check_init_blackjack()
-while game.player_turn:
-    action = input("Akcja:")
-    if action == 'hit':
-        game.hit()
-        print(f"Karty gracza: {game.player_hand} -> {game.player_hand.get_value()}")
-    elif action == 'stand':
-        game.stand()
-    else:
-        print("Co ty kurwa piszesz ziomek")
-game.dealer_handler()
-print(f"Dealer: {game.dealer_hand}  -> {game.dealer_hand.get_value()}")
-print(game.check_winner())
+game.play_round()
+
+# game.deal_init_cards()
+# print(f"Karty gracza: {game.player_hand} -> {game.player_hand.get_value()}")
+# print(f"Karta dealera: {game.dealer_hand.cards[0]}")
+# game.check_init_blackjack()
+# while game.player_turn:
+#     action = input("Akcja:")
+#     if action == 'hit':
+#         game.hit()
+#         print(f"Karty gracza: {game.player_hand} -> {game.player_hand.get_value()}")
+#     elif action == 'stand':
+#         game.stand()
+#     else:
+#         print("Co ty kurwa piszesz ziomek")
+# game.dealer_handler()
+# print(f"Dealer: {game.dealer_hand}  -> {game.dealer_hand.get_value()}")
+# print(game.check_winner())
+
