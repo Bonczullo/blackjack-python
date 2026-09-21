@@ -8,7 +8,7 @@ Current version v0.2:
 - Hand class
 - Game class
 - Player hit/stand
-- Dealer automatic behavior
+- Automatic dealer behavior
 - Blackjack detection
 - Winner detection
 - Bust detection

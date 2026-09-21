@@ -16,29 +16,25 @@ class Hand:
         aces = 0
         for card in self.cards:
             if card.rank == 'Ace':
-                value += 11
                 aces += 1
-            elif card.rank in ['Jack', 'Queen', 'King']:
-                value += 10
-            else:
-                value += int(card.rank)
+            value += card.get_card_value()
         while value > 21 and aces > 0:
             aces -= 1
             value -= 10
-        return value, aces    
+        return value, aces
 
-    def get_value(self):
+    def get_hand_value(self):
         value, _ = self.calculate_value()
         return value
 
-    def get_value_str(self):
+    def get_hand_value_str(self):
         value, aces = self.calculate_value()
         if value < 21 and aces > 0:
             return f"{value - 10}/{value}"
         return str(value)
 
     def check_blackjack(self):
-        return len(self) == 2 and self.get_value() == 21
+        return len(self) == 2 and self.get_hand_value() == 21
 
     def check_bust(self):
-        return self.get_value() > 21
+        return self.get_hand_value() > 21

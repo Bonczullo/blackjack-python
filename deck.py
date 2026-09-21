@@ -13,13 +13,23 @@ class Deck:
                 self.cards.append(Card(rank, suit))
         self.shuffle_deck()
 
+    def __str__(self):
+        return "\n".join([str(card) for card in self.cards])
+
     def __len__(self):
         return len(self.cards)
 
     def draw_card(self):
-        if self.cards:
-            return self.cards.pop()
-        return
+        if not self.cards:
+            self.reset_deck()
+        return self.cards.pop()
 
     def shuffle_deck(self):
         random.shuffle(self.cards)
+
+    def reset_deck(self):
+        self.cards.clear()
+        for suit in SUITS:
+            for rank in RANKS:
+                self.cards.append(Card(rank, suit))
+        self.shuffle_deck()
