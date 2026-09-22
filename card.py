@@ -6,7 +6,7 @@ class Card:
         self.suit = SUIT_TRANSLATION.get(suit, suit)
         
     def __str__(self):
-        return f"{self.rank} of {self.suit}"
+        return str(self.rank)
 
     def get_card_value(self):
         if self.rank == 'Ace':
