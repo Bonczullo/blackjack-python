@@ -1,9 +1,7 @@
-SUIT_TRANSLATION = {'Pik':'Spades', 'Kier':'Hearts', 'Trefl':'Clubs', 'Karo':'Diamonds'}
-
 class Card:
     def __init__(self, rank, suit):
         self.rank = rank
-        self.suit = SUIT_TRANSLATION.get(suit, suit)
+        self.suit = suit
         
     def __str__(self):
         return str(self.rank)
